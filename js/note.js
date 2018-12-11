@@ -1,3 +1,4 @@
-function Note() {
-  this._text
-};
+function displayNote() {
+  return document.getElementById("note").value + "<br>"
+
+}
