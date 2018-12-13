@@ -3,21 +3,25 @@
   <head>
 
     <meta charset="utf-8">
-    <script src="app.js"></script>
-    <script src="js/note.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="App.js"></script>
+    <script src="js/Note.js"></script>
+    <script src="js/NoteView.js"></script>
+    <script src="js/NoteController.js"></script>
 
     <title> My SPA </title>
   </head>
   <body>
+
     <br>
     <center>
 
       <h2><font face="courier"> Print some notes: </h2><br>
 
-      <input id="note" type="area"><br><br>
-      <button type="submit" class="btn btn-outline-success" id="post"> Add Note </button><br><br>
+      <input id="note" type="area"></input><br><br>
+      <button type="submit" class="btn btn-outline-success" id="add"> Add Note </button><br><br>
       <p id="notes"></p>
 
       </font>
