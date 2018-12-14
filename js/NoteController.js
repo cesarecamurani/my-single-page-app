@@ -21,12 +21,20 @@
     })
 
     window.addEventListener("hashchange", function() {
-      var noteId = window.location.hash.split('#notes/')[1]
-      var note = self.noteList.findById(noteId)
-      var noteView = new self.NoteView(note) //n or N
-      var html = noteView.display()
+      if(window.location.hash == '#notes') {
 
-      self.display(html)
+        var html = self.noteListView.display()
+        self.display(html)
+
+      } else {
+
+        var noteId = window.location.hash.split('#notes/')[1]
+        var note = self.noteList.findById(noteId)
+        var noteView = new self.NoteView(note)
+        var html = noteView.display()
+
+        self.display(html)
+      }
     })
 
   }

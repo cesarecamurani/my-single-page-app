@@ -9,7 +9,7 @@ NoteListView.prototype.display = function () {
     "<center>",
     "<h2>",
     "<font face='courier'>",
-    "Print some notes:",
+    "Print a Note:",
     "</h2>",
     "<br>",
     "<form>",
@@ -18,11 +18,13 @@ NoteListView.prototype.display = function () {
     "<br>",
     "<input type='submit' class='btn btn-outline-success'></input>",
     "</form>",
-    "<br>",
+    "<br>", "<br>", "<br>",
       this.noteList.notes.map(function(note) {
       return [
         "<div>",
+        "<h2>",
         "<a href='#notes/" + note.id + "'>" + note.title() + "</a>",
+        "</h2>",
         "</div>"
       ].join("")
     }).join(""),

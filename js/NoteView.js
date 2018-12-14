@@ -5,11 +5,17 @@
       this.note =  note
     };
 
-    NoteView.prototype.showNote = function () {
+    NoteView.prototype.display = function () {
       return [
-        "div",
-        "p" + this.note.text + "/p",
-        "/div"
+        "<br>",
+        "<center>",
+        "<h4>", "<font face='courier' color='green'>",
+        "<a href='#notes'>", "Notes List", "</a>",
+        "</h4>", "</font>",
+        "<br>", "<br>", "<br>",
+        "<h2>", "<font face='courier' color='green'>",
+        "<div>", "<p>" + this.note.text + "</p>", "</div>",
+        "</h2>", "</font>",
       ].join('')
     };
 
