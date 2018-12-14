@@ -1,19 +1,21 @@
 
 (function (exports) {
 
-  function NoteList(note) {
-    this.note = note
+  function NoteList(noteModel) {
+    this.noteModel = noteModel
     this.notes = [];
   }
 
-  NoteList.prototype.noteAdd = function(text) {
-    var newNote = new this.note(text) // create a Note
-    this.notes.push(newNote); // then add to list
+  NoteList.prototype.createNote = function(text) {
+    var note = new this.noteModel(text)
+    this.notes.push(note);
   };
 
-  NoteList.prototype.all = function() {
-    return this.notes; // returns all notes
-  }
+  NoteList.prototype.findById = function(id) {
+    return this.notes.find(function(note) {
+      return note.id == id
+    })
+  };
 
   exports.NoteList = NoteList
 

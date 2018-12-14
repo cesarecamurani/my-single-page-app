@@ -1,19 +1,40 @@
-var controller = {};
 
 (function (exports) {
 
-    function add(note) {
-      document.getElementById("add").addEventListener("click", function() {
-        model.noteAdd(note)
-        controller.display(note)
-      });
-    }
+  function NoteController (noteList, noteListView, noteView) {
+    this.noteList = noteList
+    this.noteListView = noteListView
+    this.NoteView = noteView
 
-    function display(note) {
-      document.getElementById("notes").innerHTML = view.noteShow(document.getElementById("note").value);
-    }
+    this._set()
+  };
 
-    exports.add = add
-    exports.display = display
+  NoteController.prototype._set = function () {
+    var self = this
 
-})(controller);
+    window.addEventListener("submit", function(event) {
+      event.preventDefault()
+      self.noteList.createNote(event.target[0].value)
+      var html = self.noteListView.display()
+
+      self.display(html)
+    })
+
+    window.addEventListener("hashchange", function() {
+      var noteId = window.location.hash.split('#notes/')[1]
+      var note = self.noteList.findById(noteId)
+      var noteView = new self.NoteView(note) //n or N
+      var html = noteView.display()
+
+      self.display(html)
+    })
+
+  }
+
+  NoteController.prototype.display = function (html) {
+    document.getElementById("app").innerHTML = html
+  }
+
+  exports.NoteController = NoteController
+
+})(this);
